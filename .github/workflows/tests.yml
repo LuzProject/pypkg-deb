@@ -37,7 +37,7 @@ jobs:
         run: poetry install
       
       - name: Build and install projet
-        run: poetry build && pip install dist/pypkg-deb*.whl
+        run: poetry build && pip install dist/pypkg_deb*.whl
         
       - name: Get repo zip
         run: |
