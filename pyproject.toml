@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pypkg-deb"
+version = "0.0.1"
+description = ""
+authors = ["ja1dan <ajaidan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pypkg_deb"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+argparse = "^1.4.0"
+
+[tool.poetry.scripts]
+pypkg = 'pypkg_deb.__main__:main'
+pypkg-deb = 'pypkg_deb.__main__:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
