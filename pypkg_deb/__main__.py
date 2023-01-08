@@ -5,6 +5,7 @@ from pydeb import Deb
 
 # local imports
 from . import logger
+from .utils import get_version
 
 def main(argv=None) -> None:
 	parser = ArgumentParser()
@@ -12,6 +13,8 @@ def main(argv=None) -> None:
 	parser.add_argument('deb', action='store', help='path of the deb file to operate on')
 	parser.add_argument('-x', '--extract', action='store_true', help='extracts the deb file')
 	parser.add_argument('-c', '--contents', action='store_true', help='list the contents of the deb file')
+	parser.add_argument('-v', '--version', action='version', version=f'pypkg-deb v{get_version()}',
+	help='show current version and exit')
 	
 	args = parser.parse_args()
 	
