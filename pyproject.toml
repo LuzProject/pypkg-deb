@@ -9,7 +9,7 @@ packages = [{include = "pypkg_deb"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 argparse = "^1.4.0"
-pydeb = {git = "git@github.com:LuzProject/pydeb"}
+pydeb = {git = "https://github.com/LuzProject/pydeb"}
 
 [tool.poetry.scripts]
 pypkg = 'pypkg_deb.__main__:main'
