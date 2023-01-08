@@ -1,10 +1,10 @@
 # module imports
 from argparse import ArgumentParser
 from os import path
+from pydeb import Deb
 
 # local imports
 from . import logger
-from .deb import Deb
 
 def main(argv=None) -> None:
 	parser = ArgumentParser()
