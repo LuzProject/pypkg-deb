@@ -16,7 +16,11 @@ def main(argv=None) -> None:
 	parser.add_argument('-c', '--contents', action='store_true', help='list the contents of the deb file')
 	parser.add_argument('-v', '--version', action='version', version=f'pypkg-deb v{get_version()}',
 	help='show current version and exit')
-	
+	parser.add_argument(
+     	'-Z', help='specify a compression algorithm (gzip, xz, bzip). ignored unless using "-b"')
+	parser.add_argument(
+		'-z', help='specify a compression level (1-9); defaults to 9. ignored unless using "-b"', type=int)
+ 
 	args = parser.parse_args()
 	
 	if not path.exists(args.path):
@@ -36,7 +40,11 @@ def main(argv=None) -> None:
 		for f in deb.filepaths.get('root'):
 			print(f)
 	if args.build:
-		packed = Pack(args.path)
+		if not args.Z:
+			args.Z = 'xz'
+		if not args.z:
+			args.z = 9
+		packed = Pack(args.path, algorithm=args.Z, compression_level=args.z)
 		deb = Deb(file=packed.debpath, remove_file=True)
 		logger.log(f'Successfully built "{deb.control.package}"')
 	

@@ -46,3 +46,6 @@ jobs:
     
       - name: Extract and list files
         run: pypkg-deb ./repo/pool/org.coolstar.sileo_2.3_iphoneos-arm.deb -c -x
+      
+      - name: Rebuild deb
+        run: pypkg-deb -b -Zxz -z9 ./org.coolstar.sileo_2.3_iphoneos-arm
