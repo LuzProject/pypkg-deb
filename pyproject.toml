@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "pypkg_deb"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.7"
 argparse = "^1.4.0"
 pydeb = {git = "https://github.com/LuzProject/pydeb"}
 
